@@ -1,7 +1,7 @@
 const ENVIRONMENT = process.env.NODE_ENV || 'development';
-const dotenv = require('dotenv');
 
-if (ENVIRONMENT !== 'production') dotenv.config();
+// eslint-disable-next-line global-require
+if (ENVIRONMENT !== 'production') require('dotenv').config();
 
 const configFile = `./${ENVIRONMENT}`;
 
@@ -28,7 +28,8 @@ const config = {
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
       username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD
+      password: process.env.DB_PASSWORD,
+      connectionString: process.env.CONNECTION_STRING
     },
     api: {
       bodySizeLimit: process.env.API_BODY_SIZE_LIMIT,

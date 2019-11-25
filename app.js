@@ -23,6 +23,7 @@ const bodyParserUrlencodedConfig = () => ({
 });
 
 const app = express();
+require('./config/db');
 
 // Client must send "Content-Type: application/json" header
 app.use(bodyParser.json(bodyParserJsonConfig()));
